@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adag version="2.1" count="1" index="0" name="DAGdag12" jobCount="8" fileCount="0" childCount="7">
+  <job id="0" nammespace="DAG" name="0" version="1.0" tasklength="35">
+    <uses file="0_1" link="output" register="false" transfer="false" optional="false" type="data" size="9" />
+    <uses file="0_2" link="output" register="false" transfer="false" optional="false" type="data" size="29" />
+    <uses file="0_3" link="output" register="false" transfer="false" optional="false" type="data" size="2" />
+  </job>
+  <job id="1" nammespace="DAG" name="1" version="1.0" tasklength="40">
+    <uses file="0_1" link="input" register="false" transfer="false" optional="false" type="data" size="9" />
+    <uses file="1_4" link="output" register="false" transfer="false" optional="false" type="data" size="1" />
+    <uses file="1_5" link="output" register="false" transfer="false" optional="false" type="data" size="6" />
+    <uses file="1_6" link="output" register="false" transfer="false" optional="false" type="data" size="7" />
+  </job>
+  <job id="2" nammespace="DAG" name="2" version="1.0" tasklength="34">
+    <uses file="0_2" link="input" register="false" transfer="false" optional="false" type="data" size="29" />
+  </job>
+  <job id="3" nammespace="DAG" name="3" version="1.0" tasklength="20">
+    <uses file="0_3" link="input" register="false" transfer="false" optional="false" type="data" size="2" />
+    <uses file="3_5" link="output" register="false" transfer="false" optional="false" type="data" size="7" />
+  </job>
+  <job id="4" nammespace="DAG" name="4" version="1.0" tasklength="33">
+    <uses file="1_4" link="input" register="false" transfer="false" optional="false" type="data" size="1" />
+    <uses file="4_7" link="output" register="false" transfer="false" optional="false" type="data" size="0" />
+  </job>
+  <job id="5" nammespace="DAG" name="5" version="1.0" tasklength="14">
+    <uses file="1_5" link="input" register="false" transfer="false" optional="false" type="data" size="6" />
+    <uses file="3_5" link="input" register="false" transfer="false" optional="false" type="data" size="7" />
+    <uses file="5_7" link="output" register="false" transfer="false" optional="false" type="data" size="0" />
+  </job>
+  <job id="6" nammespace="DAG" name="6" version="1.0" tasklength="21">
+    <uses file="1_6" link="input" register="false" transfer="false" optional="false" type="data" size="7" />
+    <uses file="6_7" link="output" register="false" transfer="false" optional="false" type="data" size="0" />
+  </job>
+  <job id="7" nammespace="DAG" name="7" version="1.0" tasklength="0">
+    <uses file="4_7" link="input" register="false" transfer="false" optional="false" type="data" size="0" />
+    <uses file="5_7" link="input" register="false" transfer="false" optional="false" type="data" size="0" />
+    <uses file="6_7" link="input" register="false" transfer="false" optional="false" type="data" size="0" />
+  </job>
+  <child ref="1">
+    <parent ref="0" />
+  </child>
+  <child ref="2">
+    <parent ref="0" />
+  </child>
+  <child ref="3">
+    <parent ref="0" />
+  </child>
+  <child ref="4">
+    <parent ref="1" />
+  </child>
+  <child ref="5">
+    <parent ref="1" />
+    <parent ref="3" />
+  </child>
+  <child ref="6">
+    <parent ref="1" />
+  </child>
+  <child ref="7">
+    <parent ref="4" />
+    <parent ref="5" />
+    <parent ref="6" />
+  </child>
+</adag>
+
